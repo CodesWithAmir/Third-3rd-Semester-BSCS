@@ -15,6 +15,10 @@ C++ programs and lab exercises for the third-semester Data Structures and Algori
   - Selection sort
   - Insertion sort
   - Sorting combined with binary search
+- `Stack/`
+  - Dynamic integer stack
+  - Push and pop operations
+  - Overflow and underflow handling
 
 Each exercise is a separate C++ source file and can be compiled independently.
 
