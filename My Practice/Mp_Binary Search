@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int size;
+    cout<<"Enter the size of array";
+    cin<<size;
+    int arr[size];
+    for(int i=0;i<size; i++)
+    {
+        cout<<"Enter the value for index ";
+    }
+    for(int i=0;i<5;i++)
+    {
+        cout<<"ENter the value for index "<<i<<" :";
+        cin>>arr[i];
+    }
+
+    for(int i=0; i<5; i++)
+    {
+        cout<<"Value of index " <<i<<" is  : "<<arr[i]<<endl;
+    }
+    return 0;
+}
