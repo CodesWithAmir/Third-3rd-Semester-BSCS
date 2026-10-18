@@ -1,0 +1,13 @@
+QUESTION 3: INFIX TO PREFIX
+
+i.   A + B * ( C - D ) / E
+     Prefix: + A / * B - C D E
+
+ii.  A / B * C - D + E / F / ( G + H )
+     Prefix: + - * / A B C D / / E F + G H
+
+iii. A - B * C + D ^ E / F
+     Prefix: + - A * B C / ^ D E F
+
+iv.  ( ( A - ( B + C ) ) * D ) ^ ( E + F )
+     Prefix: ^ * - A + B C D + E F

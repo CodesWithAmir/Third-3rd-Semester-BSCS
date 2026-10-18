@@ -1,0 +1,42 @@
+Question 2 Part ii
+
+Infix:
+A / B * C - D + E / F / ( G + H )
+
+Postfix:
+A B / C * D - E F / G H + / +
+
+Logic:
+1. A aur B operands result mein add hote hain.
+2. / stack mein push hota hai aur B par pop hota hai.
+3. * stack mein push hota hai aur C ke baad pop hota hai.
+4. - stack mein push hota hai aur D ke baad pending rehta hai.
+5. E aur F result mein add hote hain.
+6. / stack mein push hota hai.
+7. ( stack mein push hota hai.
+8. G aur H add hote hain, + pop hota hai.
+9. ) par ( remove hota hai.
+10. Remaining operators precedence ke order mein pop hote hain.
+
+Stack trace:
+
+Read       Action                         Stack       Result
+----------------------------------------------------------------
+A          operand -> result             empty       A
+/          Push                          /           A
+B          operand -> result             /           AB
+*          Pop /, Push *                 *           AB/
+C          operand -> result             *           AB/C
+-          Pop *, Push -                 -           AB/C*
+D          operand -> result             -           AB/C*D
++          Pop -, Push +                 +           AB/C*D-
+E          operand -> result             +           AB/C*D-E
+/          Push                          + /         AB/C*D-E
+F          operand -> result             + /         AB/C*D-EF
+/          Pop /, Push /                 + /         AB/C*D-EF/
+(          Push                          + / (       AB/C*D-EF/
+G          operand -> result             + / (       AB/C*D-EF/G
++          Push                          + / ( +     AB/C*D-EF/G
+H          operand -> result             + / ( +     AB/C*D-EF/GH
+)          Pop +, remove (               + /         AB/C*D-EF/GH+
+end        Pop /, Pop /, Pop +            empty       AB/C*D-EF/GH+/+

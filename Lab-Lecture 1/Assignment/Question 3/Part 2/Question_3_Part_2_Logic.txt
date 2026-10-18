@@ -1,0 +1,20 @@
+Question 3 Part ii
+
+Infix:
+A / B * C - D + E / F / ( G + H )
+
+Prefix:
++ - * / A B C D / / E F + G H
+
+Method:
+1. Infix expression reverse ki jati hai.
+2. Parentheses swap kiye jate hain.
+3. Stack ke Push, Pop aur Top methods use hote hain.
+4. Reversed postfix ko reverse karke prefix result milta hai.
+
+Stack conversion trace:
+
+Original infix: A / B * C - D + E / F / ( G + H )
+Reversed and brackets swapped: ( H + G ) / F / E + D - C * B / A
+Reversed postfix: HG+F/E/D+C*B/A/-
+Final prefix (reversed): + - * / A B C D / / E F + G H

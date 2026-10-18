@@ -1,0 +1,17 @@
+QUESTION 3 - SAME STACK METHOD REUSED FROM QUESTION 2
+
+Question 3 ke C++ files:
+Question 3/Assignment_Stack_Header.h
+ke through Question 2 ka same stack header reuse karti hain.
+
+INFIX TO PREFIX RULES
+
+1. Infix expression ko reverse karo.
+2. '(' ko ')' aur ')' ko '(' se replace karo.
+3. Reversed expression par Question 2 wala infix-to-postfix stack method
+   apply karo.
+4. Reversed postfix result ko reverse karo.
+5. Final result prefix expression hota hai.
+
+Question 3 ke har part ki separate Logic.txt file mein:
+reversed expression, stack method aur final prefix result diya gaya hai.

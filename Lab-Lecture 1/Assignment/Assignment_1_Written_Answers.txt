@@ -1,0 +1,64 @@
+DATA STRUCTURES AND ALGORITHMS
+ASSIGNMENT 1
+
+QUESTION 1: OPERATOR PRECEDENCE AND ASSOCIATIVITY
+
+Operator       Precedence       Associativity
+------------------------------------------------
+()             Highest          N/A
+^              3                Right to left
+*, /, %        2                Left to right
++, -           1                Left to right
+
+Note:
+Parentheses are solved first. Exponentiation comes next. Multiplication,
+division and modulus have the same precedence. Addition and subtraction
+have the lowest precedence in this table.
+
+
+QUESTION 2: INFIX TO POSTFIX
+
+Stack method result table:
+
+No.  Infix Expression                                      Postfix Expression
+--------------------------------------------------------------------------------
+i    A + B * ( C - D ) / E                                 A B C D - * E / +
+ii   A / B * C - D + E / F / ( G + H )                     A B / C * D - E F / G H + / +
+iii  A - B * C + D ^ E / F                                 A B C * - D E ^ F / +
+iv   ( ( A - ( B + C ) ) * D ) ^ ( E + F )                 A B C + - D * E F + ^
+
+i.   A + B * ( C - D ) / E
+     Postfix: A B C D - * E / +
+
+ii.  A / B * C - D + E / F / ( G + H )
+     Postfix: A B / C * D - E F / G H + / +
+
+iii. A - B * C + D ^ E / F
+     Postfix: A B C * - D E ^ F / +
+
+iv.  ( ( A - ( B + C ) ) * D ) ^ ( E + F )
+     Postfix: A B C + - D * E F + ^
+
+
+QUESTION 3: INFIX TO PREFIX
+
+Stack method result table:
+
+No.  Infix Expression                                      Prefix Expression
+--------------------------------------------------------------------------------
+i    A + B * ( C - D ) / E                                 + A / * B - C D E
+ii   A / B * C - D + E / F / ( G + H )                     + - * / A B C D / / E F + G H
+iii  A - B * C + D ^ E / F                                 + - A * B C / ^ D E F
+iv   ( ( A - ( B + C ) ) * D ) ^ ( E + F )                 ^ * - A + B C D + E F
+
+i.   A + B * ( C - D ) / E
+     Prefix: + A / * B - C D E
+
+ii.  A / B * C - D + E / F / ( G + H )
+     Prefix: + - * / A B C D / / E F + G H
+
+iii. A - B * C + D ^ E / F
+     Prefix: + - A * B C / ^ D E F
+
+iv.  ( ( A - ( B + C ) ) * D ) ^ ( E + F )
+     Prefix: ^ * - A + B C D + E F

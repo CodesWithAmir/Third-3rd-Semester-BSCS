@@ -1,0 +1,38 @@
+Question 2 Part i
+
+Infix:
+A + B * ( C - D ) / E
+
+Postfix:
+A B C D - * E / +
+
+Logic:
+1. A operand hai, result mein add hota hai.
+2. + stack mein push hota hai.
+3. B result mein add hota hai.
+4. * ki precedence + se zyada hai, is liye * stack mein push hota hai.
+5. ( stack mein push hota hai.
+6. C result mein add hota hai.
+7. - stack mein push hota hai.
+8. D result mein add hota hai.
+9. ) par - pop hota hai aur ( remove hota hai.
+10. * pop hota hai, phir / stack mein push hota hai.
+11. E result mein add hota hai.
+12. End par / aur + pop hote hain.
+
+Stack trace:
+
+Read       Action                         Stack       Result
+----------------------------------------------------------------
+A          operand -> result             empty       A
++          Push                          +           A
+B          operand -> result             +           AB
+*          Push                          + *         AB
+(          Push                          + * (       AB
+C          operand -> result             + * (       ABC
+-          Push                          + * ( -     ABC
+D          operand -> result             + * ( -     ABCD
+)          Pop -, remove (               + *         ABCD-
+/          Pop *, Push /                 + /         ABCD-*
+E          operand -> result             + /         ABCD-*E
+end        Pop /, Pop +                  empty       ABCD-*E/+

@@ -22,6 +22,7 @@ class LinkedList
 	void deleteFromTail();
 	void deleteNode(double existing);
 	void traverseList();
+	void insertSorted(double val);
 };
 bool LinkedList::isEmpty()
 {
@@ -227,5 +228,34 @@ void LinkedList::traverseList()
 		}
 		cout<<endl;
 		cout<<"Total number of nodes : "<<num<<endl;
+	}
+}
+void LinkedList::insertSorted(double val)
+{
+	Node *newNode=new Node(val);
+	if(isEmpty())
+	{
+		head=tail=newNode; // insertAtHead(val);
+	}
+	else if(head->data>val) //head->data>val
+	{
+		insertAtHead(val);  //head=tail=newNode;
+	}
+	else if(tail->data<val)  //tail->data<val
+	{
+		insertAtTail(val);  //tail=newNode;
+	}
+	else
+	{
+		Node *curr=head->next;
+		Node *prev=head;
+		while(curr->data<val)
+		{
+			prev=curr;
+			curr=curr->next;
+		}
+		prev->next=newNode;
+		newNode->next=curr;
+		
 	}
 }

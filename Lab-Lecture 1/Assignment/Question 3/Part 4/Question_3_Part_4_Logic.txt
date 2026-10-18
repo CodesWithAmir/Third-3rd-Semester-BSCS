@@ -1,0 +1,20 @@
+Question 3 Part iv
+
+Infix:
+( ( A - ( B + C ) ) * D ) ^ ( E + F )
+
+Prefix:
+^ * - A + B C D + E F
+
+Method:
+1. Infix expression reverse ki jati hai.
+2. Opening aur closing parentheses swap kiye jate hain.
+3. Operators stack ke through process hote hain.
+4. Reversed postfix ko reverse karke final prefix result milta hai.
+
+Stack conversion trace:
+
+Original infix: ( ( A - ( B + C ) ) * D ) ^ ( E + F )
+Reversed and brackets swapped: ( F + E ) ^ D * ( ( C + B ) - A )
+Reversed postfix: FE+DCB+A-*^
+Final prefix (reversed): ^ * - A + B C D + E F

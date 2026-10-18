@@ -1,0 +1,15 @@
+DATA STRUCTURES AND ALGORITHMS
+ASSIGNMENT 1 - QUESTION 1
+
+OPERATOR PRECEDENCE AND ASSOCIATIVITY
+
+Operator       Precedence       Associativity
+------------------------------------------------
+()             Highest          N/A
+^              3                Right to left
+*, /, %        2                Left to right
+, -            1                Left to right
+
+Parentheses are solved first. Exponentiation comes next. Multiplication,
+division and modulus have the same precedence. Addition and subtraction
+have the lowest precedence in this table.

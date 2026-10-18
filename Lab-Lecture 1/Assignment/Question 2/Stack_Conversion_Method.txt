@@ -1,0 +1,24 @@
+QUESTION 2 - COMMON STACK METHOD
+
+The C++ files use Assignment_Stack_Header.h.
+That header contains the same ExpressionStack methods already used in the
+Assignment folder:
+
+isEmpty()  -> checks whether top is -1.
+isFull()   -> checks whether the array is full.
+Push()     -> puts an operator on the stack.
+Pop()      -> removes the top operator.
+Top()      -> reads the top operator without removing it.
+
+INFIX TO POSTFIX RULES
+
+1. Operand ko seedha result mein likho.
+2. '(' ko stack mein Push karo.
+3. ')' par operators ko Pop karo jab tak '(' na mil jaye.
+4. Operator par stack ke Top ki precedence check karo.
+5. Higher precedence operator ko pehle Pop karo.
+6. Equal precedence mein left-associative operator ko pehle Pop karo.
+7. Expression ke end par remaining operators Pop karo.
+
+Question 2 ke har part ki separate Logic.txt file mein:
+Input, stack action, stack state aur result trace diya gaya hai.

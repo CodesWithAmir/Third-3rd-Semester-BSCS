@@ -1,0 +1,44 @@
+Question 2 Part iv
+
+Infix:
+( ( A - ( B + C ) ) * D ) ^ ( E + F )
+
+Postfix:
+A B C + - D * E F + ^
+
+Logic:
+1. Parentheses stack mein push hote hain.
+2. A result mein add hota hai.
+3. B aur C result mein add hote hain.
+4. Inner + closing parenthesis par pop hota hai.
+5. - closing parenthesis par pop hota hai.
+6. D result mein add hota hai.
+7. * closing parenthesis par pop hota hai.
+8. E aur F result mein add hote hain.
+9. + closing parenthesis par pop hota hai.
+10. End par ^ pop hota hai.
+
+Stack trace:
+
+Read       Action                         Stack       Result
+----------------------------------------------------------------
+(          Push                          (           empty
+(          Push                          ( (         empty
+A          operand -> result             ( (         A
+-          Push                          ( ( -       A
+(          Push                          ( ( - (     A
+B          operand -> result             ( ( - (     AB
++          Push                          ( ( - ( +   AB
+C          operand -> result             ( ( - ( +   ABC
+)          Pop +, remove (               ( ( -       ABC+
+)          Pop -, remove (               (           ABC+-
+*          Push                          ( *         ABC+-
+D          operand -> result             ( *         ABC+-D
+)          Pop *, remove (               empty       ABC+-D*
+^          Push                          ^           ABC+-D*
+(          Push                          ^ (         ABC+-D*
+E          operand -> result             ^ (         ABC+-D*E
++          Push                          ^ ( +       ABC+-D*E
+F          operand -> result             ^ ( +       ABC+-D*EF
+)          Pop +, remove (               ^           ABC+-D*EF+
+end        Pop ^                         empty       ABC+-D*EF+^

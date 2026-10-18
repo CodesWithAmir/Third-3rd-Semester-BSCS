@@ -1,0 +1,20 @@
+Question 3 Part iii
+
+Infix:
+A - B * C + D ^ E / F
+
+Prefix:
++ - A * B C / ^ D E F
+
+Method:
+1. Infix expression reverse ki jati hai.
+2. Parentheses swap kiye jate hain.
+3. Precedence aur associativity stack mein check hoti hai.
+4. Reversed postfix ko reverse karke prefix result milta hai.
+
+Stack conversion trace:
+
+Original infix: A - B * C + D ^ E / F
+Reversed and brackets swapped: F / E ^ D + C * B - A
+Reversed postfix: FE/D^CB*A-+
+Final prefix (reversed): + - A * B C / ^ D E F
