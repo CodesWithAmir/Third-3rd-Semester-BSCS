@@ -209,8 +209,40 @@ void DLinkedList::deleteNode(double existing)
         {
             curr->prev->next=curr->next;
             curr->next->prev=curr->prev;
+            curr->next=0;//precautionary
+            curr->prev=0;//precautionary
             cout<<curr->data<<" is deleted from the List"<<endl;
             delete curr;
         }
     }
+}
+void DLinkedList::traverseList()
+{
+    if(isEmpty())
+    {
+        cout<<"List is Empty"<<endl;
+    }
+    else
+    {
+        DNode *curr=head;
+        while(curr!=0)
+        {
+            cout<<curr->data<<" ";
+            curr=curr->next;
+        }
+        cout<<endl;
+    }
+}
+DLinkedList::~DLinkedList()
+{
+    DNode *delNode = head;
+    DNode *nextNode;
+    while(delNode!=0)
+    {
+        nextNode=delNode->next;
+        delete delNode;
+        delNode=nextNode;
+    }
+
+
 }
