@@ -1,0 +1,95 @@
+#include<iostream>
+#include "Node.h"
+using namespace std;
+
+class CLinkedList
+{
+	private:
+		Node* head;
+	public:
+		CLinkedList()
+		{
+			head=0;
+		}
+		void insertAtHead(double val);
+		void insertAtLast(double val);
+		void insertAfter(double existing,double val);
+		void insertBefore(double existing,double val);
+		void deleteFromHead();
+		void deleteFromLast();
+		void deleteNode(double existing);
+		void traverseList();
+		bool isEmpty();
+		void insertSorted(double val);
+		~CLinkedList();
+};
+void CLinkedList::insertAtHead(double val)
+{
+	Node *newNode=new Node(val);
+	//case 1=List is Empty.
+	if(head==0)
+	{
+		head=newNode;
+		newNode->next=head;
+	}
+	//case 2=List not Empty
+	else
+	{
+		newNode->next=head;
+		Node *curr=head;
+		while(curr->next!=head)
+		{
+			curr=curr->next;
+		}
+		curr->next=newNode;
+		head=newNode;
+	}
+}
+void CLinkedList::insertAtLast(double val)
+{
+	Node *newNode=new Node(val);
+	//case 1=List is Empty.
+	if(head==0)
+	{
+		head=newNode;
+		newNode->next=head;
+	}
+	//case 2=List not Empty
+	else
+	{
+		Node *curr=head;
+		while(curr->next!=head)
+		{
+			curr=curr->next;
+		}
+		curr->next=newNode;
+		newNode->next=head;
+	}
+}
+void CLinkedList::insertAfter(double existing,double val)
+{
+	//case 1=List is Empty
+	if(head==0)
+	{
+		cout<<"List is Empty. Insertion failed"<<endl;
+	}
+	else
+	{
+		Node *curr=head;
+		while(curr->data!=existing&&curr->next!=head)
+		{
+			curr=curr->next;
+		}
+		if(curr->data!=existing&&curr->next!=head)
+		{
+			cout<<existing<<" is not found in the List. Insertion failed"<<endl;
+		}
+		else
+		{
+			Node *newNode=new Node(val);
+			newNode->next=curr->next;
+			curr->next=newNode;
+		}
+		
+	}
+}

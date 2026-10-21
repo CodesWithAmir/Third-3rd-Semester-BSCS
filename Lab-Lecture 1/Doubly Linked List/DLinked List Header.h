@@ -246,3 +246,32 @@ DLinkedList::~DLinkedList()
 
 
 }
+void DLinkedList::insertSorted(double val)
+{
+    //case 1 = List is Empty
+    if(isEmpty())
+    {
+        insertAtHead(val);
+    }
+    else if(val<=head->data)
+    {
+        insertAtHead(val);
+    }
+    else if(val>=tail->data)
+    {
+        insertAtTail(val);
+    }
+    else
+    {
+        DNode *curr=head;
+        while(curr!=0&&curr->data<val)
+        {
+            curr=curr->next;
+        }
+        DNode *newNode=new DNode(val);
+        newNode->next=curr;
+        newNode->prev=curr->prev;
+        curr->prev->next=newNode;
+        curr->prev=newNode;
+    }
+}
