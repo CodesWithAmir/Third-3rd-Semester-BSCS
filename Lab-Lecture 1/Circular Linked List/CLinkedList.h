@@ -93,3 +93,28 @@ void CLinkedList::insertAfter(double existing,double val)
 		
 	}
 }
+void CLinkedList::deleteFromHead()
+{
+	if(head->next==head)
+	{
+		cout<<"This List is Empty . Deletion Failed"<<endl;
+	}
+	else if(head->next==head)
+	{
+        Node *delNode=head;
+		head=0;
+		delete delNode;
+	}
+	else
+	{
+        Node *delNode=head;
+		Node *curr=head;
+		while(curr->next!=head)
+		{
+			curr=curr->next;
+		}
+		head=head->next;
+		curr->next=head;
+		delete delNode;
+	}
+}
