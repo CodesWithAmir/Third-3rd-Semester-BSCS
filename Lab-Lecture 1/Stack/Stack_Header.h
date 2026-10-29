@@ -87,3 +87,20 @@ void IntStack :: POP()
 		top--; // Logical deletion: Only decrementing index counter
 	}
 }
+void IntStack :: Display()
+{
+	if(isEmpty())
+	{
+		cout << "Stack is Empty " << endl;
+	}
+	else
+	{
+		cout << "Values in Stack are " << endl;
+		for(int i = top; i >= 0; i--)
+		{
+			cout << stackArray[i] << " ";
+		}
+		cout << endl;
+	}
+}
+

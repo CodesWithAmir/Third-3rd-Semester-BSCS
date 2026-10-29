@@ -1,15 +1,14 @@
 /*
 ================================================================================
-  PROGRAM: LINEAR SEARCH - VALUE LOCATION
-  FILE: 4.cpp
-  DATE: October 2026
-  DESCRIPTION:
-  Searches an array sequentially and reports the index of the first matching
-  value. If the value does not exist, it reports that it was not found.
+  PROGRAM: Linear Search with Index Location Tracking in C++
+  DATE: September 2026
+  DESCRIPTION: 
+  Searches an array element-by-element and returns the EXACT index location 
+  where the item is stored. Returns -1 if the target is not present.
 ================================================================================
 */
 
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 int main()
@@ -17,51 +16,49 @@ int main()
     int size;
 
     cout << "========================================" << endl;
-    cout << "       LINEAR SEARCH: LOCATION          " << endl;
+    cout << "  LINEAR SEARCH (LOCATION TRACKING)    " << endl;
     cout << "========================================" << endl;
 
     cout << "Enter size of array: ";
     cin >> size;
 
-    if (size <= 0)
-    {
-        cout << "Array size must be greater than zero." << endl;
-        return 1;
-    }
+    int arr[size];
 
-    int* arr = new int[size];
-
-    for (int i = 0; i < size; i++)
+    // Populating Array
+    for(int i = 0; i < size; i++)
     {
         cout << "Enter value for index [" << i << "]: ";
         cin >> arr[i];
     }
 
-    int numSearch;
-    cout << "Enter number to search: ";
-    cin >> numSearch;
+    int num_search;
+    cout << "\nEnter number to search: ";
+    cin >> num_search;
 
+    // --- SEARCH LOGIC ---
+    // Sentinel value: -1 means the target location hasn't been found yet
     int location = -1;
 
     for (int i = 0; i < size; i++)
     {
-        if (arr[i] == numSearch)
+        if (arr[i] == num_search)
         {
-            location = i;
-            break;
+            location = i; // Save exact memory index
+            break;        // Exit early once target is matched
         }
-    }
+    }		
 
-    if (location != -1)
+    // --- OUTPUT DISPLAY ---
+    cout << "\n----------------------------------------" << endl;
+    if (location != -1) // Alternative to (location > -1)
     {
-        cout << "Number " << numSearch << " found at index "
-             << location << "." << endl;
-    }
+        cout << "[SUCCESS] Value " << num_search << " found at Index: " << location << endl;
+    }		  
     else
     {
-        cout << "Number " << numSearch << " was not found in the array." << endl;
+        cout << "[NOT FOUND] Value " << num_search << " does not exist in array." << endl;
     }
+    cout << "----------------------------------------" << endl;
 
-    delete[] arr;
     return 0;
 }

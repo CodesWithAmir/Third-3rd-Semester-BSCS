@@ -118,3 +118,52 @@ void CLinkedList::deleteFromHead()
 		delete delNode;
 	}
 }
+void CLinkedList::deleteNode(double existing)
+{
+    if(head==0)
+	{
+		cout<<"List is Empty "<<endl;
+	}
+	else if(head->data==existing)
+	{
+		deleteFromHead();
+	}
+	else
+	{
+		Node *curr=head->next;
+		Node *prev=head;
+		while(curr->next!=head&&curr->data!=existing)
+		{
+			prev=curr;
+			curr=curr->next;
+		}
+		if(curr==head)
+		{
+			cout<<existing	<<" is not found in the List. Deletion failed"<<endl;
+		}
+		else
+		{
+			prev->next=curr->next;
+			curr->next=0;
+			delete curr;
+		}
+		
+	}
+}
+void CLinkedList::traverseList()
+{
+	if(head==0)
+	{
+		cout<<"List is Empty "<<endl;
+	}
+	else
+	{
+		Node *curr=head;
+		do
+		{
+			cout<<curr->data<<" ";
+			curr=curr->next;
+		}while(curr!=head);
+		cout<<endl;
+	}
+}

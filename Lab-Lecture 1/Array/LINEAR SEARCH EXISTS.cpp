@@ -1,15 +1,14 @@
 /*
 ================================================================================
-  PROGRAM: LINEAR SEARCH - VALUE EXISTS OR NOT
-  FILE: 3.cpp
-  DATE: October 2026
-  DESCRIPTION:
-  Searches an array from the first value to the last value. It reports whether
-  the requested value exists. Linear search works on sorted and unsorted arrays.
+  PROGRAM: Linear Search Algorithm in C++
+  DATE: September 2026
+  DESCRIPTION: 
+  Iterates through an array sequentially (element by element) to check 
+  if a target value exists. Works on both sorted and unsorted arrays.
 ================================================================================
 */
 
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 int main()
@@ -17,50 +16,52 @@ int main()
     int size;
 
     cout << "========================================" << endl;
-    cout << "       LINEAR SEARCH: EXISTS            " << endl;
+    cout << "        LINEAR SEARCH ALGORITHM         " << endl;
     cout << "========================================" << endl;
 
     cout << "Enter size of array: ";
     cin >> size;
 
-    if (size <= 0)
-    {
-        cout << "Array size must be greater than zero." << endl;
-        return 1;
-    }
+    // Array Allocation
+    int arr[size];
 
-    int* arr = new int[size];
-
-    for (int i = 0; i < size; i++)
+    // Populating Array Elements
+    for(int i = 0; i < size; i++)
     {
         cout << "Enter value for index [" << i << "]: ";
         cin >> arr[i];
     }
 
-    int numSearch;
-    cout << "Enter number to search: ";
-    cin >> numSearch;
+    int num_search;
+    cout << "\nEnter number to search: ";
+    cin >> num_search;
 
+    // --- LINEAR SEARCH LOGIC ---
     bool found = false;
+    int location = -1; // Index store karne ke liye
 
+    // Sequential Iteration: Checks every element from index 0 to size-1
     for (int i = 0; i < size; i++)
     {
-        if (arr[i] == numSearch)
+        if (arr[i] == num_search)
         {
             found = true;
-            break;
+            location = i; // Target index capture karo
+            break;        // Element mil gaya, mazeed iterations ki zaroorat nahi
         }
-    }
+    }		
 
+    // --- OUTPUT DISPLAY ---
+    cout << "\n----------------------------------------" << endl;
     if (found)
     {
-        cout << "Number " << numSearch << " found in the array." << endl;
-    }
+        cout << "[SUCCESS] Number " << num_search << " found at index: " << location << endl;
+    }		  
     else
     {
-        cout << "Number " << numSearch << " was not found in the array." << endl;
+        cout << "[NOT FOUND] Number " << num_search << " does not exist in array." << endl;
     }
+    cout << "----------------------------------------" << endl;
 
-    delete[] arr;
     return 0;
 }

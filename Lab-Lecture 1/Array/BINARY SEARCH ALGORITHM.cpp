@@ -1,19 +1,10 @@
 /*
-================================================================================
-  PROGRAM: BINARY SEARCH
-  FILE: 5.cpp
-  DATE: October 2026
-  DESCRIPTION:
-  Searches for a value in an array using Binary Search. The user must enter
-  values in ascending order because Binary Search works only on sorted arrays.
-  Each step removes half of the remaining search range.
-================================================================================
+    BINARY SEARCH ALGORITHM
 */
-
 #include <iostream>
 using namespace std;
 
-int main()
+int main() 
 {
     int size;
 
@@ -21,62 +12,65 @@ int main()
     cout << "        BINARY SEARCH ALGORITHM         " << endl;
     cout << "========================================" << endl;
 
+    // IMPORTANT: Binary Search srf SORTED array pe kaam karta hai!
     cout << "Enter size of array: ";
     cin >> size;
 
-    if (size <= 0)
-    {
-        cout << "Array size must be greater than zero." << endl;
-        return 1;
-    }
+    int arr[size];
 
-    int* arr = new int[size];
-
-    cout << "\nEnter values in ascending order." << endl;
-    for (int i = 0; i < size; i++)
+    cout << "\n[NOTE: Enter values in ASCENDING order (e.g., 10 20 30 40)]" << endl;
+    for (int i = 0; i < size; i++) 
     {
-        cout << "Enter value for index [" << i << "]: ";
+        cout << "Enter element at index " << i << ": ";
         cin >> arr[i];
     }
 
-    int numSearch;
-    cout << "Enter number to search: ";
-    cin >> numSearch;
+    int num_search;
+    cout << "\nEnter number to search: ";
+    cin >> num_search;
 
-    int start = 0;
-    int end = size - 1;
-    int location = -1;
+    // --- BINARY SEARCH LOGIC ---
+    int start = 0;             // Pehla index
+    int end = size - 1;        // Aakhri index
+    int location = -1;         // Default -1 matlab value nahi mili
 
-    while (start <= end)
+    while (start <= end) 
     {
-        int mid = start + (end - start) / 2;
+        // 1. Array ke middle element ka index nikalo
+        int mid = (start + end) / 2;
 
-        if (arr[mid] == numSearch)
+        // 2. CHECK 1: Agar middle value hi hamara target hai
+        if (arr[mid] == num_search) 
         {
-            location = mid;
-            break;
+            location = mid;   // Index save karo
+            break;            // Loop stop kar do
         }
 
-        if (arr[mid] > numSearch)
+        // 3. CHECK 2: Agar middle value target se BADI hai
+        // Matlab target left side par hai, is liye 'end' ko peeche lao
+        if (arr[mid] > num_search) 
         {
             end = mid - 1;
-        }
-        else
+        } 
+        // 4. CHECK 3: Agar middle value target se CHHOTI hai
+        // Matlab target right side par hai, is liye 'start' ko aage le jao
+        else 
         {
             start = mid + 1;
         }
     }
 
-    if (location != -1)
+    // --- OUTPUT DISPLAY ---
+    cout << "\n----------------------------------------" << endl;
+    if (location != -1) 
     {
-        cout << "Number " << numSearch << " found at index "
-             << location << "." << endl;
-    }
-    else
+        cout << "[SUCCESS] Number " << num_search << " found at index: " << location << endl;
+    } 
+    else 
     {
-        cout << "Number " << numSearch << " was not found in the array." << endl;
+        cout << "[NOT FOUND] Number " << num_search << " does not exist in the array." << endl;
     }
+    cout << "----------------------------------------" << endl;
 
-    delete[] arr;
     return 0;
 }

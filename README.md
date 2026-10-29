@@ -14,8 +14,6 @@ C++ programs and lab exercises for the third-semester Data Structures and Algori
 - [Dynamic queue](Lab-Lecture%201/Dynamic%20Queue/)
 - [Stack](Lab-Lecture%201/Stack/)
 - [Dynamic stack](Lab-Lecture%201/Dynamic%20Stack/)
-- [Professor examples](Lab-Lecture%201/Codes%20By%20Professor/)
-- [Practice programs](My%20Practice/)
 
 ## Project Map
 
@@ -113,6 +111,7 @@ Audit performed on October 21, 2026. No source-code changes were made during the
 - Generated `.exe` and `.gch` files are ignored by `.gitignore`; do not commit them.
 - Variable-length arrays used by some exercises are not standard C++. Prefer `std::vector` or managed dynamic storage for portable C++11 builds.
 - Several folders contain duplicate implementations of the same data structure. Keep one canonical implementation per structure and make demos include it.
+- Empty legacy folders and removed examples are not listed in the navigation above.
 
 ## Repository
 

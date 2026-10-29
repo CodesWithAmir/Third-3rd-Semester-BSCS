@@ -9,51 +9,39 @@
 ================================================================================
 */
 
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 int main()
 {
     int size;
 
-    cout << "========================================" << endl;
-    cout << "            DYNAMIC ARRAY              " << endl;
-    cout << "========================================" << endl;
-
-    cout << "Enter size of array: ";
+    cout << "Enter size of Array: ";
     cin >> size;
 
-    if (size <= 0)
-    {
-        cout << "Array size must be greater than zero." << endl;
-        return 1;
-    }
+    // Dynamic Stack Allocation (Variable Length Array - VLA)
+    // Note: VLA standard C++ ka part nahi hai, par GCC/Clang compilers isay allow karte hain.
+    int arr[size];
 
-    int* arr = new int[size];
-
-    for (int i = 0; i < size; i++)
+    // Populating the Array
+    for(int i = 0; i < size; i++)
     {
-        cout << "Enter value for index [" << i << "]: ";
+        cout << "Enter Value for index [" << i << "]: ";
         cin >> arr[i];
     }
 
-    cout << "\nValues in the array are:" << endl;
-    for (int i = 0; i < size; i++)
+    // Sequential Traversal (Displaying all elements)
+    cout << "\nValues in the array are:" << endl; 
+    for(int i = 0; i < size; i++)
     {
-        cout << "Index [" << i << "] -> " << arr[i] << endl;
+        cout << "Index " << i << " -> " << arr[i] << endl;
     }
 
-    cout << "\nValue at index 0 (1st value) = " << arr[0] << endl;
+    // Direct Index Access
+    // WARNING: Agar user ne size 2 ya us se kam enter kiya, toh arr[2] access karne par 
+    // Out-of-Bounds Error / Garbage Value mil sakti hai.
+    cout << "\n3rd Element (Index 2) = " << arr[2] << endl;
+    cout << "1st Element (Index 0) = " << arr[0] << endl;
 
-    if (size > 2)
-    {
-        cout << "Value at index 2 (3rd value) = " << arr[2] << endl;
-    }
-    else
-    {
-        cout << "Index 2 is not available because the array has fewer than 3 values." << endl;
-    }
-
-    delete[] arr;
     return 0;
 }
